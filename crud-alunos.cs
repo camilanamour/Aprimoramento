@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 public class main{
     public static void Main(string[] args){
+        List<Aluno> alunos = new List<Aluno>();
         // menu 
         while (true){
             Console.WriteLine("\nMenu:");
@@ -14,7 +16,8 @@ public class main{
             Console.Write("\nDigite o que deseja: ");
             int op = int.Parse(Console.ReadLine());
             switch (op){
-                case 1:     // cadastrar
+                case 1:     
+                    cadastroAlunos();
                     break;
                 case 2:     // consulta
                     break;
@@ -31,5 +34,15 @@ public class main{
                     break;
             }
         }
+    }
+    
+    public static void cadastroAlunos(){
+        Console.WriteLine("Funcionou...");
+    }
+    
+   class Aluno {
+        public string Nome{ get; set;}
+        public int Idade{get; set;}
+        public string Curso{get; set;}
     }
 }
