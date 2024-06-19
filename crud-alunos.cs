@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 
-public class main{
+public class Principal{
     public static void Main(string[] args){
         List<Aluno> alunos = new List<Aluno>();
+        Principal p = new Principal(); // instaciar a classe para usar os métodos 
+        
         // menu 
         while (true){
             Console.WriteLine("\nMenu:");
@@ -17,9 +19,21 @@ public class main{
             int op = int.Parse(Console.ReadLine());
             switch (op){
                 case 1:     
-                    cadastroAlunos();
+                    int vezes = p.qtdcadastrar();
+                    for (int i = 0; i<vezes; i++){
+                        Console.WriteLine($"\nCadastro do Aluno {i + 1}");
+                        Console.Write("Nome: ");
+                        string nome = Console.ReadLine();
+                        Console.Write("Idade: ");
+                        int idade = int.Parse(Console.ReadLine());
+                        Console.Write("Curso: ");
+                        string curso = Console.ReadLine();
+
+                        alunos.Add(new Aluno() { Nome = nome, Idade = idade, Curso = curso });
+                    }
                     break;
-                case 2:     // consulta
+                case 2:     
+                    consultarAlunos();
                     break;
                 case 3:     // altera
                     break;
@@ -36,7 +50,14 @@ public class main{
         }
     }
     
-    public static void cadastroAlunos(){
+    public int qtdcadastrar(){
+        int qtdAlunos = 0;
+        Console.WriteLine("Quantos alunos deseja cadastrar?");
+        qtdAlunos = int.Parse(Console.ReadLine());
+        return qtdAlunos;
+    }
+    
+    public static void consultarAlunos(){
         Console.WriteLine("Funcionou...");
     }
     
